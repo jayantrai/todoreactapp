@@ -21,11 +21,14 @@ class App extends Component {
       }
     ]
   }
+  onComplete = () => {
+    console.log('hello')
+  }
   render() {
     
     return (
       <div>
-        <Todos todos={this.state.todos}/>
+        <Todos todos={this.state.todos} onComplete={this.onComplete}/>
       </div>
     )
   }
