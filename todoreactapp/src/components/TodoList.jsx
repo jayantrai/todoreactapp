@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 
-class TodoList extends Component {
-    
+class Todolist extends Component {
   render() {
-      
+    console.log(this.props.todo)
     return (
       <div>
-        <h3>
-        <input type="checkbox" onChange={this.props.onComplete} name="title" id=""/>{ ' ' }
-        {this.props.todo.title}
-        </h3>
+     <h3>{this.props.todo.title}</h3>
       </div>
     )
   }
 }
 
-export default TodoList
+export default Todolist
+
