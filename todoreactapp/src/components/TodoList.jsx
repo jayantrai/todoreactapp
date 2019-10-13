@@ -1,18 +1,30 @@
-class Todolist extends Component {
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+class TodoList extends Component {
+  
+  itemStyle = () => {
+    return {
+      textDecoration: this.props.todo.completed ? 'line-through' : 'none'
+    }
+  }
 
   render() {
-    
-    return (
-      <div>
-     <h3>
+      return (
+      <div style={this.itemStyle()}>
+     <p>
+          <input type="checkbox" onChange={this.props.onComplete.bind(this, id)} /> {' '}
           {this.props.todo.title}
-     </h3>
+     </p>
       </div>
     )
 
   }
 }
 
-export default Todolist
+TodoList.propTypes = {
+  todo: PropTypes.object.isRequired
+}
+
+export default TodoList
 

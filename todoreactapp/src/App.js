@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Todos from './components/Todos.jsx'
 
+
 class App extends Component {
   state = {
     todos: [
@@ -21,17 +22,27 @@ class App extends Component {
       }
     ]
   }
+  onComplete = (id) => {
+    this.setState({todos: this.state.todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })})
+  }
  
   render() {
     
     return (
       <div>
-        <Todos todos={this.state.todos}/>
+        <Todos todos={this.state.todos} onComplete={this.onComplete}/>
         
       </div>
     )
   }
 }
+
+
 
 export default App
 
