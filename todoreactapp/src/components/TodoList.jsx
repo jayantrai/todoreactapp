@@ -1,13 +1,16 @@
+class Todolist extends Component {
 import React, { Component } from 'react'
 
-class Todolist extends Component {
   render() {
-    console.log(this.props.todo)
+    
     return (
       <div>
-     <h3>{this.props.todo.title}</h3>
+     <h3>
+          {this.props.todo.title}
+     </h3>
       </div>
     )
+
   }
 }
 
