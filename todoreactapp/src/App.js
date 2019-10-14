@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Todos from './components/Todos.jsx'
+import Form from './components/Form.jsx'
 
 
 class App extends Component {
@@ -30,12 +31,31 @@ class App extends Component {
       return todo
     })})
   }
+
+  onDelete = (id) => {
+    this.setState({todos: [...this.state.todos.filter(todo => todo.id 
+    !== id
+
+    )]})
+  }
+
+  addTodo = (title) => {
+    const newTodo = {
+      id: 4, 
+      title,
+      completed: false
+    }
+    this.setState({todos: [...this.state.todos, newTodo]})
+  }
  
   render() {
     
     return (
       <div>
-        <Todos todos={this.state.todos} onComplete={this.onComplete}/>
+        <Form addTodo={this.addTodo}/>
+        <Todos todos={this.state.todos} 
+        onComplete={this.onComplete} 
+        onDelete={this.onDelete}/>
         
       </div>
     )

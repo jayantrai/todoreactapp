@@ -9,12 +9,17 @@ class TodoList extends Component {
     }
   }
 
+
+
+
   render() {
+    const { id, title } = this.props.todo // destructuring 
       return (
       <div style={this.itemStyle()}>
      <p>
           <input type="checkbox" onChange={this.props.onComplete.bind(this, id)} /> {' '}
-          {this.props.todo.title}
+          {title} {' '}
+          <button onClick={this.props.onDelete.bind(this, id)}>Delete</button>
      </p>
       </div>
     )
